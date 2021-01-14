@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="main-container">
+    <div class="main-wrapper">
+      <div class="main-content">
+        <h1 class="page-title">Movie Bio</h1>
+        <form class="search-form">
+          <label class="page-description">Search movie:</label>
+          <input [(ngModel)]="movieSearch" class="search-movie-input" type="text" name="movieSearch" placeholder="Pesquise aqui"/>
+          <button class="btn-search" (click)="getMovieData()">Search</button>
+        </form>
+        <div class="movie-card">
+          <img class="movie-img" src="{{movieData.Poster}}" alt="{{movieData.Title}}">
+          <div class="movie-info">
+            <h3>{{movieData.Title}}</h3>
+            <p>{{movieData.Genre}}</p>
+            <p>{{movieData.Runtime}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>

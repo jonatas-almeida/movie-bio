@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,19 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  movieData: any = [];
+  posterData: any = [];
+  movieSearch: string;
+
+  constructor(private movieService: MovieService) {}
+
+  getMovieData(){
+    this.movieService.getMovie(this.movieSearch).subscribe(
+      (response) => {
+        this.movieData = response;
+        console.log(response);
+      }
+    )
+  }
 
 }
